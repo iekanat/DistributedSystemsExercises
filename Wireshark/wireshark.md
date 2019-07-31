@@ -26,7 +26,7 @@ It is important to keep your network activity very limited during this exercise.
 
 Launch the windows command prompt. (You can do this by typing cmd in the windows start menu). We will use the command prompt to generate short bursts of traffic which we will analyze.
 
-![cmd](figures/commandPrompt.png)
+![cmd](figures/comandPrompt.png)
 
 Launch wireshark. You can find it in the Start Menu.
 
