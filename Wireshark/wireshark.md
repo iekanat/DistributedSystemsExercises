@@ -58,7 +58,7 @@ This is how it should look like during the capture:
 
 There is a lot that can go differently and your results may be different. I am attaching the results of my capture here. You can use my results to more easily follow along.
 
-[ping capture][pingCapture.pcapng]
+[ping capture](pingCapture.pcapng)
 
 ## Wireshark Analysis
 
