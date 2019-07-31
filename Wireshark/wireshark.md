@@ -56,7 +56,7 @@ This is how it should look like during the capture:
 
 ![During Capture](figures/captured.png)
 
-There is a lot that can go differently and your results may be different. I am attaching the results of my capture here. You can use my results to more easily follow along.
+There is a lot that can go differently and your results may be different. I am attaching the results of my capture here. You can use my results to more easily follow along. Click the link below to download the pcapng file.
 
 [ping capture](pingCapture.pcapng)
 
