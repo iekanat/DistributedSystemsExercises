@@ -1055,56 +1055,10 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>wireshark</title></head><body><article class="markdown-body"><h1 id="wireshark">Wireshark<a class="headerlink" href="#wireshark" title="Permanent link"></a></h1>
-<p>Today&rsquo;s exercise is to solidify the concepts learned in the classroom. We will specifically focus on the TCP/IP 5 Layer Stack and how it looks in action.</p>
-<p>For this purpose we will use a tool called wireshark. Wireshark is a packet sniffer. It can be used to record and inspect traffic going through your network interfaces (wireless, ethernet&hellip;).</p>
-<p>Wireshark listens to all the packages going through the interface and records them. If you follow security news, you will see that it is often used to trace malware communication to command and control servers.</p>
-<p>You should be careful when using this tool in organizational networks. Since there is the possibility of intercepting traffic not meant for you, you may violate the law or the organizational policy. This is why I recommend not using wireshark outside of your home network.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
-<p>Wireshark is an open source tool and can be freely obtained from <a href="https://www.wireshark.org/">https://www.wireshark.org/</a>.</p>
-<p>Download the appropriate version for your computer and run the downloaded file.</p>
-<p><img alt="Wireshark.org" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/website0.png" /></p>
-<p>Installation is straighforward. Default settings are sane and you don&rsquo;t need to change anything. Just proceed as advised.</p>
-<p><img alt="Installation" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/installation.png" /></p>
-<p>At the end of the installation you will need to restart your computer.</p>
-<h2 id="wireshark-analysis-simple">Wireshark Analysis Simple<a class="headerlink" href="#wireshark-analysis-simple" title="Permanent link"></a></h2>
-<p>Click the link below to download the pcapng file. This is from a capture I made earlier. I pinged the cbs.dk server 3 times and recorded the results. It also includes the ARP, and DNS exchanges to figure out the route to cbs.dk. See <a href="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/ping.md">this document</a> for details on how capture was carried out.</p>
-<p><a href="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/pingCapture.pcapng">ping capture</a></p>
-<p>You can open the downloaded file in wireshark. Either double click it, or go through the File &gt; Open dialogue.</p>
-<p>This is what it should look like:</p>
-<p><img alt="Capture Results" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/results.png" /></p>
-<p>You can see we intercepted 10 packages in about 2 seconds.</p>
-<p>Since my computer did not know how to get to cbs.dk, some address resolution was necessary. Now I want you to look at the protocol column. Some of these protocols should be similar from in class demoland activities.</p>
-<p>ARP protocol to resolve IP addresses to MAC addresses (Layer 2).</p>
-<p>DNS protocol to resolve URL (cbs.dk) to IP addresses.</p>
-<p>Finally ICMP packages our ping command generated.</p>
-<p>If you look at the source and destination addresses you will see that each packet we generated on our end (My IP address was 10.02.15) was answered by a response.</p>
-<h3 id="dns-packet">DNS Packet<a class="headerlink" href="#dns-packet" title="Permanent link"></a></h3>
-<p>Let us take a look at the first DNS packet. Click the first DNS packet.</p>
-<p><img alt="DNS 0" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/dns0.png" /></p>
-<p>Now the middle part of the screen shows the information the packet contains.</p>
-<p><img alt="DNS 1" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/dns1.png" /></p>
-<p>From top to bottom, these correspond to the five layers of the TCP/IP protocol stack.</p>
-<p>You can see the source and destination MAC addresses in layer 2 (Link).</p>
-<p>Source and destination IP addresses in layer 3 (Network).</p>
-<p>The transport protocol used (UDP) in layer 4 (Transport).</p>
-<p>And finally the application protocol in layer 5 (DNS).</p>
-<p>Let us investigate layer 5. We know that our computer asks the DNS server about cbs.dk. Click &ldquo;Domain Name System (query)&rdquo; to see the information contained in that layer.</p>
-<p><img alt="DNS 2" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/dns2.png" /></p>
-<p>You can see the interpretation of the protocol in human readable format in the middle pane. The bottom pane displays the hexadecimal representation of the data.</p>
-<p>To finish up, let us inspect the response from the DNS server. Click on the next DNS packet. </p>
-<p>You can see in the response the addresses of the destination and source are switched. So this message is from the DNS server (10.0.2.3) to my computer (10.0.2.15).</p>
-<p><img alt="DNS 3" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/dns3.png" /></p>
-<p>The answer indicates cbs.dk can be reached at 130.226.47.28.</p>
-<h3 id="icmp-ping">ICMP Ping<a class="headerlink" href="#icmp-ping" title="Permanent link"></a></h3>
-<p>ICMP is a protocol used by network devices to communicate with each other. It is used to send error messages, and operational information. As such it is not used to exchange data. We used ICMP protocol to verify that cbs.dk was up.</p>
-<p>Since ICMP is a layer 3 protocol (remember routers operate at layer 3) you will see that the transport layer headers are missing.</p>
-<p>What I want you to note here is the time differences between requests and responses. You might be familiar with ping as a measure of latency in online games. Essentially it is measuring how long it takes to get information from the server.</p>
-<h2 id="wireshark-capture">Wireshark Capture<a class="headerlink" href="#wireshark-capture" title="Permanent link"></a></h2>
-<p>Now you know how to look at the data, you can also capture your own traffic. The capture you analyzed earlier was captured using Wireshark.</p>
-<p>It is important to keep your network activity very limited during this exercise. Your computer generates quite a few packages by itself. You browsing the net during capture may produce an overwhelming number of packages. If you have services that use network data (dropbox, spotify, etc.), it may be a good idea to turn them off.</p>
-<p>Open a new browser window without any tabs. Other tabs may create unnecessary traffic.</p>
-<p><img alt="New Browser Window" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/newBrowser.png" /></p>
+</style><title>ping</title></head><body><article class="markdown-body"><h1 id="ping-capture-procedure">Ping Capture Procedure<a class="headerlink" href="#ping-capture-procedure" title="Permanent link"></a></h1>
+<p>This is the procedure I used to capture the ping data used in wireshark exercise.</p>
+<p>Launch the windows command prompt. (You can do this by typing cmd in the windows start menu). We will use the command prompt to generate short bursts of traffic which we will analyze.</p>
+<p><img alt="cmd" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/commandPrompt.png" /></p>
 <p>Launch wireshark. You can find it in the Start Menu.</p>
 <p><img alt="Launch Wireshark" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/startmenu.png" /></p>
 <p>After wireshark initializes you can see a list of network interfaces.</p>
@@ -1113,49 +1067,12 @@ body .markdown-body
 <p>Select the interface you want to use. Correct interface depends on how you connect to the network. I will be using wired ethernet (as my workstation does not have a wireless interface).</p>
 <p>Once you select the interface the capture icon on the top left will become clickable. The capture icon looks like a shark fin. </p>
 <p><img alt="capture" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/capture.png" /></p>
-<p>After you click the capture button, switch to the browser window and type in cbs.dk in the address bar and press enter.</p>
-<p>As soon as you see the cbs.dk landing page, switch back to wireshark and click the red square on the top right corner to stop capture. We don&rsquo;t want to capture any other traffic (It can get confusing otherwise).</p>
-<p><img alt="Stop Capture" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/stop.png" /></p>
-<p>This is how it should look like after the capture.</p>
-<p><img alt="Browser Capture" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/capturedBrowser.png" /></p>
-<h2 id="wireshark-analysis-filters">Wireshark Analysis - Filters<a class="headerlink" href="#wireshark-analysis-filters" title="Permanent link"></a></h2>
-<p>That visit to CBS.dk generated over a thousand packages in the 5 seconds it took me to complete it. For compatibility purposes, find attached my capture.</p>
-<p><a href="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/browser.pcapng">Browser Capture</a></p>
-<p>Making sense of ten packets as we did before is easy. When it is real traffic, we need some filtering capabilities. The true beauty of wireshark is the filtering capabilities.</p>
-<p>Let us start small.</p>
-<p>1 - As you saw, there is a lot of traffic. Let&rsquo;s say I am interested only in packages to and from cbs.dk.</p>
-<p>We know that the ip address of cbs.dk is 130.226.47.28. We can create a filter to show only the packages that contain 130.226.47.28 as the ip address.</p>
-<p>Click the expression next to the filter bar.</p>
-<p><img alt="Expression" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/expression.png" /></p>
-<p>Now you see a long list of protocols that are used in modern networking. We talked about 5 layers. These are the protocols that populate those layers.</p>
-<p>So the protocol we are interested in is the IP protocol. Scroll down the list until you see IPv4.</p>
-<p><img alt="filter" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/filter.png" /></p>
-<p>We need ip.addr as the field, == as the relation, and 130.226.47.28 as the value.</p>
-<p><img alt="filter 2" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/filter2.png" /></p>
-<p>2 - It is also possible to link multiple filters together with logical operators (and, or, not&hellip;).</p>
-<p>For example let us say I am only interested in encrypted traffic using tls protocol. We can change the filter to read: </p>
-<div class="codehilite"><pre>ip.addr == 130.226.47.28 and tls
+<p>After you click the capture button, switch to the command prompt and ping cbs.dk. Use the command below to stop capture after 3 ICMP packages.</p>
+<div class="codehilite"><pre>ping -n 3 cbs.dk
 </pre></div>
 
 
-<p><img alt="Logical Filter" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/logicalFilter.png" /></p>
-<p>3 - Now we know the packages related to the web content coming from cbs.dk. What about all the rest?</p>
-<p>Let us look at some statistics.</p>
-<p><img alt="Statistics" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/statistics.png" /></p>
-<p>Statistics &gt; Choose Capture File Propreties.</p>
-<p><img alt="stats" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/stats.png" /></p>
-<p>The packages we filtered out as content make up only 17% of the packages. You can broaden the filter by removing tls and notice that the traffic from cbs.dk makes up only 60% of the packages captured.</p>
-<p>4 - Where are all these other packages coming from?</p>
-<p>Statistics &gt; Resolved Addresses</p>
-<p><img alt="hosts" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/hosts.png" /></p>
-<p>17 different IP addresses. Mostly related to advertisements.</p>
-<p>5 - Investigate the ports associated with IP destinations to see what services are being used.</p>
-<p>Statistics &gt; IPv4 Statistics &gt; Destinations and Ports</p>
-<p><img alt="Ports" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/ports.png" /></p>
-<p>Remember ports are used to direct traffic to programs installed on a computer. Some of these ports are registered for certain purposes.</p>
-<p>Port 80 is used by web servers for HTTP traffic.</p>
-<p>Port 443 is used for encrypted version of HTTP.</p>
-<p>You will see other ports as well. You can look up what they are on google.</p>
-<h2 id="wireshark-conclusion">Wireshark Conclusion<a class="headerlink" href="#wireshark-conclusion" title="Permanent link"></a></h2>
-<p>There is so much more you can do with wireshark. Using wireshark you can detect intruders in your home wifi network (Look at MAC addresses), or bitcoin mining trojans installed on your computer (anyone using bitcoin protocol?).</p>
-<p>What we did today is just scratching the surface, but if you are interested you can add this as a great tool under your tool belt.</p></article></body></html>
+<p>As soon as the ping is over, click the red square on the top right corner to stop capture. We don&rsquo;t want to capture any other traffic (It can get confusing otherwise).</p>
+<p><img alt="Stop Capture" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/stop.png" /></p>
+<p>This is how it should look like during the capture:</p>
+<p><img alt="During Capture" src="/home/irfan/Dropbox/CBS/DistributedSystems/Exercises/DistributedSystemsExercises/Wireshark/figures/captured.png" /></p></article></body></html>
