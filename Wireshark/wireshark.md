@@ -8,6 +8,8 @@ Wireshark listens to all the packages going through the interface and records th
 
 You should be careful when using this tool in organizational networks. Since there is the possibility of intercepting traffic not meant for you, you may violate the law or the organizational policy. This is why I recommend not using wireshark outside of your home network.
 
+I include two exercises here. One simple and one a bit more advanced. If you still have time on your hands after you are done, you can just capture packages from your computer at rest and see all the background chatter originating from your machine. Who knows, may be you will catch some bad guys...
+
 ## Installation
 
 Wireshark is an open source tool and can be freely obtained from [https://www.wireshark.org/](https://www.wireshark.org/).
@@ -21,37 +23,6 @@ Installation is straighforward. Default settings are sane and you don't need to 
 ![Installation](figures/installation.png)
 
 At the end of the installation you will need to restart your computer.
-
-<<<<<<< HEAD
-=======
-## Wireshark Capture
-
-It is important to keep your network activity very limited during this exercise. Your computer generates quite a few packages by itself. You browsing the net during capture may produce an overwhelming number of packages. If you have services that use network data (dropbox, spotify, etc.), it may be a good idea to turn them off.
-
-Launch the windows command prompt. (You can do this by typing cmd in the windows start menu). We will use the command prompt to generate short bursts of traffic which we will analyze.
-
-![cmd](figures/comandPrompt.png)
-
-Launch wireshark. You can find it in the Start Menu.
-
-![Launch Wireshark](figures/startmenu.png)
-
-After wireshark initializes you can see a list of network interfaces.
-
-Depending on your hardware, there will probably be a wired ethernet and a wireless ethernet adapter (and may be a few other odds and ends).
-
-![First Screen](figures/afterLaunch.png)
-
-Select the interface you want to use. Correct interface depends on how you connect to the network. I will be using wired ethernet (as my workstation does not have a wireless interface).
-
-Once you select the interface the capture icon on the top left will become clickable. The capture icon looks like a shark fin. 
-
-![capture](figures/capture.png)
-
-After you click the capture button, switch to the command prompt and ping cbs.dk. Use the command below to stop capture after 3 ICMP packages.
-
-    ping -n 3 cbs.dk
->>>>>>> 2b755b1c1188df5ebca839e43667a4760a81feb3
 
 ## Wireshark Analysis Simple
 
