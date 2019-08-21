@@ -100,6 +100,7 @@ I am hoping the discussion on password length and characterset is going to allow
 
 As you have seen cracking passwords can be time intensive, though with enough computing power it is not impossible. Which is why serious organizations force password changes from time to time. You want the information hackers may have obtained to be irrelevant by the time they manage to crack it.
 
-Beyond the relevance to lecture content, I hope you will also derive some practical benefit from this exercise. John the ripper is a useful tool not just for hackers. Today we seriously crippled its ability by forcing brute force attacks but it is generally very fast in getting at common passwords. As a system admin, you may want to make sure your users have chosen passwords that are hard to guess. It may even be helpful to recover the password for a friend some day.
+Beyond the relevance to lecture content, I hope you will also derive some practical benefit from this exercise. John the ripper is a useful tool not just for hackers. Today we seriously crippled its ability by forcing brute force attacks but it is generally very fast in getting at common passwords. As a system admin, you may want to make sure your users have chosen passwords that are hard to guess. It may even be helpful to recover the password for a friend some day. 
 
+If you want try your hand with [this file](SimpleHashes.txt) and run with default configuration. You will note John can crack these 6 character passwords in no time.
 
