@@ -62,7 +62,7 @@ John the Ripper is a very flexible tool that can carry out a broad range of pass
 
 Brute force in its essence is searching the space of all valid passwords for the correct password, by testing each one in turn.
 
-If we knew the password was 3 letters long and was only composed of the lower case letters a to z, there would be $26^3 = 17576$  possible combinations that would make a valid password. 
+If we knew the password was 3 letters long and was only composed of the lower case letters a to z, there would be 26^3 = 17576  possible combinations that would make a valid password. 
 
 Let us see how long it takes on your computer (faster computers can try more passwords in a given time) to crack such a password. [Here is a file with hashes of 4 passwords of 3 lower case letters .](3AHashes.txt)
 
