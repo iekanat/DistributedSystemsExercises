@@ -10,8 +10,8 @@ The guide is for Windows users. If you use Linux, you can just install it from r
 
 We need two pieces of software for this activity:
 
-1 - John the Ripper: This is what does the actual cracking.
-2 - Johnny: The graphical user interface to make it easier.
+1. John the Ripper: This is what does the actual cracking.
+2. Johnny: The graphical user interface to make it easier.
 
 ### John the Ripper
 
@@ -52,7 +52,7 @@ Remember the hash function, it takes an input and creates a summary of it. Hashi
 
 There are various ways to crack these hashed password files. For example, comparing against a table of pre-calculated hashes (rainbow tables) or trying all words in a list (dictionary attack). There are also some common precautions such as adding known series of letters and numbers (salting) to the passwords before hashing them.
 
-Today we will focus on Brute Force attacks. Brute forcing is trying all possible combinations for passwords to see if any work. On a live system the system often disables the user account after a certain number of tries (or forces a cooldown timer) to prevent this kind of attacks. That is why hackers often extract the password hashes and work on the hashes file separately to see if they can gain some user credentials.
+Today we will focus on Brute Force attacks. Brute forcing is trying all possible combinations for passwords to see if any work. On a live system, the system often disables the user account after a certain number of tries (or forces a cooldown timer) to prevent these kinds of attacks. That is why hackers often extract the password hashes and work on the hashes file separately to see if they can gain some user credentials.
 
 I will provide you with a series of hashes of increasing complexity and I want you to observe how password complexity can increase the time to crack a password.
 
@@ -74,7 +74,7 @@ This is what you should be seeing now.
 
 ![Hashes](figures/hashesInJohnny.png)
 
-First configure Johnny to not take any shortcuts, and use pure brute forcing attack. Click options, and select "Incremental" from the tabs. We want to specify "Lower" as the charset. This is important as otherwise cracking may take too long.
+First configure Johnny to not take any shortcuts, and use pure brute forcing attack. Click options, and select "Incremental" from the tabs. We want to specify "Lower" as the charset. We know the password is only made of lower case letters. Restricting the charset is important as otherwise cracking may take too long (John the ripper will default to ASCII search).
 
 ![Configure for Brute Force](figures/configureJohnny.png)
 
@@ -90,7 +90,7 @@ Now there is two obvious ways to expand the space of possible valid passwords. Y
 
 [Here is a file for 4 passwords and 3 letters, numbers and symbols.] You will need to remove "Lower" from charset to force all 95 ASCII characters. The possible solution space is $96^3 = 884736$. You may need to continue cracking at home to get results...
 
-[Now here is another file with hashes for 4 passwords, this time made out of 5 lower case letters.](5AHashes.txt) No need to change any configuration. Just run it and see the difference in how long it takes. The possible solution space is $23^5 = 11881376$ As you can see, this will take some time to crack.
+[Now here is another file with hashes for 4 passwords, this time made out of 5 lower case letters.](5AHashes.txt) Configure it as it was for the first trial. Just run it and see the difference in how long it takes. The possible solution space is $23^5 = 11881376$ As you can see, this will take some time to crack.
 
 ## Take Aways
 
