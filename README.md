@@ -2,8 +2,8 @@
 
 ## Networking
 
-[Wireshark](/Wireshark/wireshark.md)
+[Wireshark](/Wireshark/README.md)
 
 ## Brute Force
 
-[John The Ripper](John/john.md)
+[John The Ripper](John/README.md)
