@@ -17,7 +17,17 @@ We need two pieces of software for this activity:
 
 Download John the Ripper Windows Binaries from [here.](https://www.openwall.com/john/k/john-1.9.0-jumbo-1-win64.zip)
 
-Extract the contents of the zip file somewhere easy to remember. Perhaps into your user directory.
+Right click the downloaded file and choose extract all.
+
+![Extract All](figures/extract1.png)
+
+Windows will prompt you for a location. Extract the contents of the zip file somewhere easy to remember. Perhaps into your documents directory.
+
+![Extract to Documents](figures/extract2.png)
+
+
+
+### Johnny
 
 Download Johnny from [here.](https://openwall.info/wiki/_media/john/johnny/johnny_2.2_win.zip)
 
