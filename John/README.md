@@ -88,9 +88,9 @@ Make note of how long it takes to crack four passwords. On my beefy system this 
 
 Now there is two obvious ways to expand the space of possible valid passwords. You can either add more symbols (6 digit, 10 digit, 13 digit), or more kinds of symbols (numbers, upper case letters, punctuation marks...).
 
-[Here is a file for 4 passwords and 3 upper, lower case letters, and numbers.](3ANHash.txt) You will need to remove "Lower" from charset to force all 95 ASCII characters. The possible solution space is 96^3 = 884736. You may need to continue cracking at home to get results...
+[Here is a file for 4 passwords and 3 upper, lower case letters, and numbers.](3ANHash.txt) You will need to replace "Lower" with "Alnum" from charset to force all 62 alphanumeric characters. The possible solution space is 62^3 = 238328. This may take twice as long as the first file.
 
-[Now here is another file with hashes for 4 passwords, this time made out of 5 lower case letters.](5AHashes.txt) Configure it as it was for the first trial. Just run it and see the difference in how long it takes. The possible solution space is 26^5 = 11881376 As you can see, this will take some time to crack.
+[Now here is another file with hashes for 4 passwords, this time made out of 5 lower case letters.](5AHashes.txt) Configure it as it was for the first trial. Just run it and see the difference in how long it takes. The possible solution space is 26^5 = 11881376 As you can see, this will take some time to crack, you may need to continue at home.
 
 ## Take Aways
 
