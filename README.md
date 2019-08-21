@@ -1,5 +1,9 @@
-# Distributed Systems Exercises
+# Exercises
 
-Below are some exercises for distributed systems course.
+## Networking
 
 [Wireshark](/Wireshark/wireshark.md)
+
+## Brute Force
+
+[John The Ripper](John/john.md)
