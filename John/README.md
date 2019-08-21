@@ -36,6 +36,8 @@ There is an executable file in the downloaded zip file. Run it and install Johnn
 
 ![Install Johnny](figures/johnnyInstall)
 
+You need to configure Johnny to use John the ripper binaries. Open the settings and point Johnny to the bin folder. If you extracted John the ripper to your Documents folder the binary files should be in there.
+
 ## Broad Idea
 
 In the course, you have learned about encryption, hashing, and authentication. This exercise is designed to reinforce some of these ideas while having the students give some thought to encryption key complexity.
@@ -58,9 +60,7 @@ I will provide you with a series of hashes of increasing complexity and I want y
 
 ## Using Johnny
 
-John the Ripper is a very flexible tool that can carry out a broad range of password cracking techniques. For this exercise we will restrict it to incremental (brute force).
-
-Brute force in its essence is searching the space of all valid passwords for the correct password, by testing each one in turn.
+John the Ripper is a very flexible tool that can carry out a broad range of password cracking techniques. For this exercise we will restrict it to incremental (brute force) mode. Brute force in its essence is searching the space of all valid passwords for the correct password, by testing each one in turn.
 
 If we knew the password was 3 letters long and was only composed of the lower case letters a to z, there would be 26^3 = 17576  possible combinations that would make a valid password. 
 
