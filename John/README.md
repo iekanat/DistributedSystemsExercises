@@ -34,7 +34,7 @@ Download Johnny from [here.](https://openwall.info/wiki/_media/john/johnny/johnn
 
 There is an executable file in the downloaded zip file. Run it and install Johnny. 
 
-![Install Johnny](figures/johnnyInstall)
+![Install Johnny](figures/johnnyInstall.png)
 
 You need to configure Johnny to use John the ripper binaries. Open the settings and point Johnny to the bin folder. If you extracted John the ripper to your Documents folder the binary files should be in there.
 
