@@ -36,7 +36,9 @@ There is an executable file in the downloaded zip file. Run it and install Johnn
 
 ![Install Johnny](figures/johnnyInstall.png)
 
-You need to configure Johnny to use John the ripper binaries. Open the settings and point Johnny to the bin folder. If you extracted John the ripper to your Documents folder the binary files should be in there.
+You need to configure Johnny to use John the ripper binaries (executable files). Open the settings and point Johnny to john.exe. If you extracted John the ripper to your Documents folder the file should be in there.
+
+![Johnny Setup](figures/johnSetting.png)
 
 ## Broad Idea
 
