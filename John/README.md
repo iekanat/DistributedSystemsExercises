@@ -64,7 +64,7 @@ I will provide you with a series of hashes of increasing complexity and I want y
 
 John the Ripper is a very flexible tool that can carry out a broad range of password cracking techniques. For this exercise we will restrict it to incremental (brute force) mode. Brute force in its essence is searching the space of all valid passwords for the correct password, by testing each one in turn.
 
-Let us see how long it takes on your computer (faster computers can try more passwords in a given time) to crack such a password. [Here is a file with hashes of 4 passwords of 1 lower case letters .](1AHashes.txt)
+Let us see how long it takes on your computer (faster computers can try more passwords in a given time) to crack such a password. [Here is a file with hashes of 4 passwords of 1 lower case letters .](1AHash.txt)
 
 Download the file and open it with Johnny.
 
@@ -92,7 +92,7 @@ Below are some hashes for you to try your luck with. Remember to change the char
 
 | Character Sets | 1 | 2 | 3 | 4 |
 |----------------|---|---|---|---|
-| lower case     | [1LHash.txt](1LHash.txt) | [2LHash.txt](2LHash.txt) | [3AHashes.txt](3AHashes.txt) | [4AHash.txt](4AHashes.txt) |
+| lower case     | [1AHash.txt](1AHash.txt) | [2AHash.txt](2AHash.txt) | [3AHash.txt](3AHash.txt) | [4AHash.txt](4AHash.txt) |
 | alpha numeric  | [1ANHash.txt](1ANHash.txt) | [2ANHash.txt](2ANHash.txt) | [3ANHash.txt](3ANHash.txt) | [4ANHash.txt](4ANHash.txt) |
 
 
